@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sublime crea trufas artesanales de gulupa con rellenos exóticos y empaque sostenible en Bogotá." />
+  <title>Sublime | Sabor que deja huella</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #4c3c2d;
+      --muted: #7b6957;
+      --cream: #d1b48c;
+      --paper: #f5f5db;
+      --berry: #8a5a2c;
+      --berry-dark: #4c3c2d;
+      --lime: #c58a3c;
+      --leaf: #6b4b68;
+      --plum-soft: #e7dbea;
+      --line: rgba(76, 60, 45, .16);
+      --shadow: 0 24px 70px rgba(76, 60, 45, .16);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow { color: var(--berry); font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+    .serif { font-family: var(--serif); }
+    .section { padding: 112px 0; }
+    .section-heading { max-width: 640px; }
+    .section-heading h2 { margin: 14px 0 18px; font: 500 clamp(2.35rem, 5vw, 4.3rem)/1.02 var(--serif); letter-spacing: -.045em; }
+    .section-heading p { margin: 0; color: var(--muted); line-height: 1.75; }
+    .announcement { padding: 10px 24px; color: var(--paper); background: var(--berry-dark); font-size: .72rem; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+    header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid rgba(245, 245, 219, .2); background: rgba(76, 60, 45, .97); color: var(--paper); }
+    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; }
+    .brand-logo { display: block; width: 58px; height: 58px; padding: 3px; border-radius: 10px; background: var(--paper); object-fit: contain; }
+    .brand-mark { width: 12px; height: 12px; border-radius: 50% 50% 50% 0; background: var(--lime); transform: rotate(-45deg); }
+    .nav-links { display: flex; align-items: center; gap: 28px; font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+    .nav-links a { color: rgba(255, 250, 245, .76); transition: color .2s ease; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: 12px 19px; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: background .2s ease, color .2s ease; }
+    .nav-cta:hover { background: var(--paper); color: var(--berry-dark); }
+    .menu-toggle { display: none; border: 0; color: white; background: transparent; font: 700 .75rem var(--sans); letter-spacing: .1em; text-transform: uppercase; }
+    .hero { overflow: hidden; color: var(--paper); background: linear-gradient(118deg, var(--berry-dark) 0%, #5d443a 58%, var(--leaf) 100%); }
+    .hero-grid { min-height: 670px; display: grid; grid-template-columns: .94fr 1.06fr; align-items: center; gap: 72px; padding: 76px 0 96px; }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero .eyebrow { color: var(--lime); }
+    .hero h1 { max-width: 620px; margin: 18px 0 24px; font: 500 clamp(3.8rem, 8vw, 7.15rem)/.93 var(--serif); letter-spacing: -.065em; }
+    .hero h1 em { color: var(--lime); font-style: italic; }
+    .hero-copy > p { max-width: 530px; margin: 0; color: rgba(245, 245, 219, .76); font-size: 1.05rem; line-height: 1.75; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 999px; padding: 15px 22px; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s ease, background .2s ease, color .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: var(--berry-dark); background: var(--lime); }
+    .button-primary:hover { background: #d6a45e; }
+    .button-ghost { border: 1px solid rgba(245,245,219,.36); color: var(--paper); }
+    .button-ghost:hover { background: rgba(245,245,219,.1); }
+    .hero-note { display: flex; align-items: center; gap: 11px; margin-top: 52px; color: rgba(245, 245, 219, .6); font-size: .78rem; }
+    .hero-note span { width: 34px; height: 1px; background: var(--lime); }
+    .hero-art { position: relative; min-height: 520px; }
+    .hero-art::before { content: ""; position: absolute; width: 500px; height: 500px; top: 0; left: 50%; border: 1px solid rgba(245,245,219,.18); border-radius: 50%; transform: translateX(-38%); }
+    .hero-art::after { content: "GULUPA"; position: absolute; top: 25px; right: 14px; color: rgba(245,245,219,.18); font: 500 5.5rem var(--serif); letter-spacing: -.05em; transform: rotate(90deg); transform-origin: right top; }
+    .package { position: absolute; z-index: 2; right: 10%; bottom: 40px; width: 290px; height: 245px; border-radius: 9px; background: linear-gradient(135deg, #d1b48c 0 49%, #8a5a2c 49% 100%); box-shadow: 30px 32px 55px rgba(36,26,18,.35); transform: rotate(-7deg); }
+    .package::before { content: ""; position: absolute; inset: 22px; border: 1px solid rgba(70, 34, 27, .28); border-radius: 3px; }
+    .package-label { position: absolute; top: 50%; left: 50%; width: 128px; height: 128px; padding: 8px; background: var(--paper); text-align: center; transform: translate(-50%, -50%); box-shadow: 0 8px 16px rgba(50, 28, 20, .12); }
+    .package-logo { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .truffle { position: absolute; z-index: 3; display: grid; place-items: center; width: 114px; height: 114px; border-radius: 50%; background: radial-gradient(circle at 32% 25%, #b47b43 0 6%, transparent 7%), radial-gradient(circle at 55% 68%, #4c3c2d 0 4%, transparent 5%), radial-gradient(circle at 68% 30%, #8a5a2c 0 5%, transparent 6%), linear-gradient(145deg, #8a5a2c, #4c3c2d); box-shadow: inset -13px -14px 22px rgba(0,0,0,.28), 16px 19px 26px rgba(36, 26, 18, .28); }
+    .truffle::after { content: ""; width: 65%; height: 65%; border: 1px dashed rgba(255, 231, 200, .24); border-radius: 50%; }
+    .truffle-one { top: 86px; left: 11%; transform: rotate(15deg); }
+    .truffle-two { top: 178px; right: 5%; width: 92px; height: 92px; transform: rotate(-12deg); }
+    .truffle-three { bottom: 36px; left: 14%; width: 76px; height: 76px; transform: rotate(24deg); }
+    .flavor-tag { position: absolute; z-index: 4; right: 30%; top: 78px; padding: 13px 16px; color: var(--berry-dark); border: 1px solid rgba(245,245,219,.25); background: rgba(245,245,219,.9); font-size: .66rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; transform: rotate(4deg); }
+    .flavor-tag::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: var(--lime); }
+    .signal { position: relative; z-index: 3; margin-top: -1px; color: var(--ink); background: var(--cream); }
+    .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .signal-item { padding: 29px 30px; border-right: 1px solid var(--line); text-align: center; }
+    .signal-item:last-child { border-right: 0; }
+    .signal-item strong { display: block; font: 500 1.55rem var(--serif); }
+    .signal-item span { display: block; margin-top: 5px; color: var(--muted); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; }
+    .story { background: var(--paper); }
+    .story-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 92px; }
+    .story-card { position: relative; min-height: 510px; overflow: hidden; border-radius: 4px; color: var(--paper); background: var(--leaf); box-shadow: var(--shadow); }
+    .story-card::before { content: ""; position: absolute; width: 430px; height: 430px; top: -155px; left: -110px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; }
+    .story-card::after { content: ""; position: absolute; width: 330px; height: 330px; right: -100px; bottom: -100px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; }
+    .story-card-content { position: absolute; z-index: 1; inset: auto 34px 34px; }
+    .story-card-content span { color: var(--lime); font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .story-card-content h3 { max-width: 380px; margin: 11px 0 0; font: 500 clamp(2rem, 4vw, 3.1rem)/1.05 var(--serif); letter-spacing: -.04em; }
+    .gulupa-art { position: absolute; top: 105px; left: 50%; width: 205px; height: 205px; border-radius: 48% 52% 55% 45%; background: radial-gradient(circle at 37% 31%, rgba(245,245,219,.8) 0 3%, transparent 4%), radial-gradient(circle at 66% 46%, rgba(209,180,140,.65) 0 3%, transparent 4%), radial-gradient(circle at 46% 74%, rgba(245,245,219,.7) 0 3%, transparent 4%), linear-gradient(145deg, #8f6a8b, #6b4b68); box-shadow: inset 18px 20px 30px rgba(255,255,255,.15), inset -21px -28px 40px rgba(25,5,16,.28), 18px 24px 45px rgba(15, 30, 20, .35); transform: translateX(-50%) rotate(18deg); }
+    .gulupa-art::before { content: ""; position: absolute; width: 52px; height: 18px; top: -7px; right: 18px; border-radius: 100% 0 100% 0; background: var(--lime); transform: rotate(-34deg); }
+    .story-copy h2 { color: var(--ink); }
+    .story-copy p { max-width: 550px; color: var(--muted); line-height: 1.8; }
+    .story-copy p strong { color: var(--ink); }
+    .check-list { display: grid; gap: 17px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .check-list li { display: flex; align-items: center; gap: 12px; font-size: .95rem; }
+    .check-list li::before { content: "✓"; display: grid; place-items: center; flex: 0 0 24px; width: 24px; height: 24px; border-radius: 50%; color: var(--berry-dark); background: #ead9b8; font-size: .8rem; font-weight: 700; }
+    .flavors { background: var(--cream); }
+    .flavor-intro { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 48px; }
+    .flavor-intro .section-heading { max-width: 570px; }
+    .flavor-intro > p { max-width: 275px; margin: 0 0 4px; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+    .flavor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .flavor-card { position: relative; min-height: 355px; overflow: hidden; padding: 30px; border-radius: 4px; background: var(--paper); }
+    .flavor-card::after { content: ""; position: absolute; width: 175px; height: 175px; right: -38px; bottom: -40px; border-radius: 50%; opacity: .75; }
+    .flavor-card.fresa::after { background: var(--plum-soft); }
+    .flavor-card.citrico::after { background: #e7d8bd; }
+    .flavor-num { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: .7rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .flavor-orb { position: absolute; right: 28px; top: 28px; width: 94px; height: 94px; border-radius: 50%; box-shadow: inset -11px -15px 17px rgba(0,0,0,.14); }
+    .fresa .flavor-orb { background: radial-gradient(circle at 32% 28%, #f5f5db 0 3%, transparent 4%), radial-gradient(circle at 64% 55%, #d1b48c 0 2%, transparent 3%), #8f6a8b; }
+    .citrico .flavor-orb { background: radial-gradient(circle at 32% 28%, #f5f5db 0 3%, transparent 4%), radial-gradient(circle at 70% 54%, #f5f5db 0 2%, transparent 3%), #c58a3c; }
+    .flavor-card h3 { max-width: 330px; margin: 101px 0 16px; font: 500 clamp(1.8rem, 3vw, 2.55rem)/1.02 var(--serif); letter-spacing: -.045em; }
+    .flavor-card p { position: relative; z-index: 1; max-width: 330px; margin: 0; color: var(--muted); line-height: 1.65; }
+    .flavor-foot { position: absolute; z-index: 1; bottom: 28px; left: 30px; color: var(--berry); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .process { background: var(--paper); }
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start; }
+    .process-list { border-top: 1px solid var(--line); }
+    .process-item { display: grid; grid-template-columns: 55px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .process-item > span { color: var(--berry); font: italic 1.2rem var(--serif); }
+    .process-item h3 { margin: 0 0 7px; font: 600 1.05rem var(--sans); }
+    .process-item p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .process-quote { position: relative; min-height: 405px; padding: 48px; overflow: hidden; color: var(--paper); background: var(--berry); }
+    .process-quote::before { content: "“"; position: absolute; top: -80px; right: 21px; color: rgba(255,255,255,.13); font: 18rem/.9 var(--serif); }
+    .process-quote p { position: relative; z-index: 1; max-width: 370px; margin: 0; font: 500 clamp(2rem, 4vw, 3.2rem)/1.08 var(--serif); letter-spacing: -.04em; }
+    .process-quote small { position: absolute; bottom: 35px; left: 48px; color: var(--lime); font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .occasions { color: var(--paper); background: var(--berry); }
+    .occasion-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 85px; }
+    .occasions .eyebrow { color: var(--lime); }
+    .occasions h2 { margin-bottom: 20px; }
+    .occasions .section-heading p { color: rgba(245, 245, 219, .68); }
+    .occasion-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .occasion-card { min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; padding: 23px; border: 1px solid rgba(245,245,219,.2); background: rgba(245,245,219,.06); }
+    .occasion-card span { color: var(--lime); font-size: 1.35rem; }
+    .occasion-card h3 { margin: 20px 0 0; font: 500 1.45rem var(--serif); }
+    .occasion-card p { margin: 7px 0 0; color: rgba(245,245,219,.62); font-size: .8rem; line-height: 1.5; }
+    .contact { padding: 95px 0 50px; color: var(--paper); background: var(--berry-dark); }
+    .contact-grid { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+    .contact h2 { max-width: 580px; margin: 14px 0 0; font: 500 clamp(2.6rem, 6vw, 5rem)/.98 var(--serif); letter-spacing: -.06em; }
+    .contact .eyebrow { color: var(--lime); }
+    .contact-aside { max-width: 270px; color: rgba(245,245,219,.66); font-size: .85rem; line-height: 1.65; }
+    .contact-aside a { color: var(--lime); font-weight: 700; }
+    footer { padding: 35px 0 26px; color: rgba(245,245,219,.52); background: var(--berry-dark); }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 24px; border-top: 1px solid rgba(245,245,219,.15); font-size: .72rem; }
+    .footer-row .brand-logo { width: 64px; height: 64px; }
+    .footer-row a { color: var(--lime); }
+    .artelibre-credit { float: right; display: flex; flex-direction: column; align-items: center; gap: 9px; width: auto; margin: 28px 24px 0 auto; padding-top: 24px; border-top: 1px solid rgba(245,245,219,.12); }
+    .artelibre-credit img { display: block; width: 84px; height: 70px; padding: 0; border-radius: 12px; background: transparent; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 10px 12px rgba(0,0,0,.16)); }
+    .artelibre-credit span { color: var(--paper); font-size: .7rem; font-weight: 700; letter-spacing: .22em; text-transform: lowercase; }
+    footer::after { content: ""; display: block; clear: both; }
+    @media (max-width: 900px) {
+      .hero-grid, .story-grid, .process-grid, .occasion-grid { grid-template-columns: 1fr; gap: 54px; }
+      .hero-grid { padding-top: 68px; }
+      .hero-art { min-height: 470px; }
+      .story-card { min-height: 440px; }
+      .occasion-grid { gap: 38px; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 34px, 1160px); }
+      .section { padding: 80px 0; }
+      .announcement { font-size: .6rem; letter-spacing: .1em; }
+      nav { height: 68px; }
+      .nav-links { position: absolute; display: none; top: 68px; right: 17px; left: 17px; flex-direction: column; align-items: stretch; gap: 0; padding: 8px; border: 1px solid rgba(255,255,255,.15); background: var(--berry-dark); box-shadow: 0 20px 35px rgba(30, 7, 15, .25); }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 15px; }
+      .nav-cta { display: none; }
+      .menu-toggle { display: block; }
+      .hero-grid { min-height: auto; padding: 72px 0 62px; gap: 25px; }
+      .hero h1 { font-size: clamp(3.55rem, 18vw, 6rem); }
+      .hero-copy > p { font-size: .95rem; }
+      .hero-note { margin-top: 37px; }
+      .hero-art { min-height: 370px; transform: scale(.84); transform-origin: top left; width: 119%; margin-bottom: -66px; }
+      .hero-art::after { display: none; }
+      .signal-grid { grid-template-columns: 1fr; }
+      .signal-item { padding: 19px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .signal-item:last-child { border-bottom: 0; }
+      .flavor-intro, .contact-grid, .footer-row { align-items: start; flex-direction: column; }
+      .flavor-grid, .occasion-cards { grid-template-columns: 1fr; }
+      .flavor-card { min-height: 330px; }
+      .process-quote { min-height: 320px; padding: 33px; }
+      .process-quote small { left: 33px; bottom: 26px; }
+      .occasion-card { min-height: 155px; }
+      .contact { padding-top: 75px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Sabor que deja huella · Hecho artesanalmente en Bogotá</div>
+  <header>
+    <nav class="container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Sublime, inicio"><img class="brand-logo" src="Captura%20de%20pantalla%202026-09-12%20110604.png" alt="Sublime Trufas" /></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#historia">La historia</a>
+        <a href="#sabores">Sabores</a>
+        <a href="#proceso">El proceso</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <a class="nav-cta" href="#contacto">Pedir trufas <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false">Menú</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Trufas artesanales · edición gulupa</div>
+          <h1>Sabor que<br /><em>deja huella.</em></h1>
+          <p>Una trufa de bizcochuelo infusionado con gulupa, cubierta de chocolate y rellena de combinaciones que no esperabas encontrar en un solo bocado.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#sabores">Descubrir sabores <span aria-hidden="true">↓</span></a><a class="button button-ghost" href="#historia">Conocer Sublime <span aria-hidden="true">↗</span></a></div>
+          <div class="hero-note"><span aria-hidden="true"></span> Dulce · ácido · salado · fresco</div>
+        </div>
+        <div class="hero-art" aria-label="Ilustración de una caja y trufas Sublime">
+          <div class="flavor-tag">Dos rellenos, una historia</div><div class="truffle truffle-one"></div><div class="truffle truffle-two"></div><div class="truffle truffle-three"></div>
+          <div class="package"><div class="package-label"><img class="package-logo" src="Captura%20de%20pantalla%202026-09-12%20110604.png" alt="Sublime Trufas" /></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="signal" aria-label="Datos destacados"><div class="container signal-grid"><div class="signal-item"><strong>1 bocado</strong><span>formato finger food</span></div><div class="signal-item"><strong>2 rellenos</strong><span>contrastes para explorar</span></div><div class="signal-item"><strong>100% artesanal</strong><span>hecho en pequeños lotes</span></div></div></section>
+    <section class="section story" id="historia">
+      <div class="container story-grid">
+        <div class="story-card"><div class="gulupa-art" aria-hidden="true"></div><div class="story-card-content"><span>Nuestra firma</span><h3>La fruta colombiana en el centro de la experiencia.</h3></div></div>
+        <div class="story-copy"><div class="eyebrow">Más que una trufa</div><div class="section-heading"><h2>La gulupa también puede ser un clásico.</h2></div><p><strong>Sublime nace para darle un nuevo lugar a la gulupa.</strong> Tomamos esta fruta colombiana, de pulpa ácida y aromática, y la llevamos a una trufa de chocolate que se disfruta sin cubiertos, sin ceremonia y con mucha curiosidad.</p><p>La propuesta combina repostería artesanal, perfiles de sabor inesperados y una presentación pensada para compartir, regalar o convertir un antojo en un recuerdo.</p><ul class="check-list"><li>Ingredientes seleccionados y preparación artesanal</li><li>Empaque de cartón ecológico, biodegradable y reciclable</li><li>Una propuesta creada por aprendices del SENA</li></ul></div>
+      </div>
+    </section>
+    <section class="section flavors" id="sabores">
+      <div class="container"><div class="flavor-intro"><div class="section-heading"><div class="eyebrow">La colección</div><h2>Dos formas de dejarte pensando.</h2></div><p>La base es la misma: bizcochuelo de gulupa y cobertura de chocolate. Lo que cambia es el final de cada bocado.</p></div>
+        <div class="flavor-grid">
+          <article class="flavor-card fresa"><div class="flavor-num"><span>01 / Contraste</span><span>dulce · salado</span></div><div class="flavor-orb" aria-hidden="true"></div><h3>Fresa<br />con tocineta</h3><p>Mermelada artesanal de fresa, acidez frutal y un toque crujiente de tocineta ahumada.</p><div class="flavor-foot">Para paladares curiosos</div></article>
+          <article class="flavor-card citrico"><div class="flavor-num"><span>02 / Frescura</span><span>ácido · herbal</span></div><div class="flavor-orb" aria-hidden="true"></div><h3>Limón, kiwi<br />y hierbabuena</h3><p>Un relleno cítrico y ligero con notas verdes que limpia el paladar y pide otro bocado.</p><div class="flavor-foot">Para amantes de lo fresco</div></article>
+        </div>
+      </div>
+    </section>
+    <section class="section process" id="proceso">
+      <div class="container process-grid"><div><div class="section-heading"><div class="eyebrow">Detrás del bocado</div><h2>Lo artesanal se nota.</h2><p>Cada trufa pasa por una cadena simple, cuidada y hecha a mano: desde la fruta hasta la caja que llega contigo.</p></div><div class="process-list"><div class="process-item"><span>01</span><div><h3>Infusionamos la base</h3><p>Preparamos el bizcochuelo con la pulpa y el aroma de la gulupa.</p></div></div><div class="process-item"><span>02</span><div><h3>Cocinamos los rellenos</h3><p>Fresa con tocineta o limón con kiwi y hierbabuena, en pequeñas cantidades.</p></div></div><div class="process-item"><span>03</span><div><h3>Cubrimos con chocolate</h3><p>Una capa fina que protege el interior y aporta el primer quiebre al morder.</p></div></div><div class="process-item"><span>04</span><div><h3>Empacamos con intención</h3><p>El resultado va en una caja de cartón ecológico, lista para compartir.</p></div></div></div></div><div class="process-quote"><p>“La sorpresa empieza antes de probarla.”</p><small>Una experiencia Sublime</small></div></div>
+    </section>
+    <section class="section occasions"><div class="container occasion-grid"><div class="section-heading"><div class="eyebrow">Un formato para cada momento</div><h2>Pequeña por fuera. Memorable por dentro.</h2><p>Para el antojo de media tarde, la mesa de una feria o ese detalle que no se siente como cualquier detalle.</p></div><div class="occasion-cards"><article class="occasion-card"><span>✦</span><div><h3>Antojo</h3><p>Un bocado especial para cambiar el ritmo del día.</p></div></article><article class="occasion-card"><span>✧</span><div><h3>Regalo</h3><p>Una caja diferente para sorprender sin exagerar.</p></div></article><article class="occasion-card"><span>✺</span><div><h3>Evento</h3><p>Finger food artesanal para ferias y encuentros.</p></div></article></div></div></section>
+    <section class="contact" id="contacto"><div class="container contact-grid"><div><div class="eyebrow">¿Listo para probar algo nuevo?</div><h2>Deja que el próximo bocado hable por sí solo.</h2></div><div class="contact-aside"><p>Sublime es un proyecto de aprendices del SENA · Centro Nacional de Hotelería, Turismo y Alimentos.</p><p>Encuéntranos en <a href="https://www.instagram.com/sublime.trufasoficial/" target="_blank" rel="noreferrer">@sublime.trufasoficial ↗</a></p></div></div></section>
+  </main>
+  <footer><div class="container footer-row"><a class="brand" href="#inicio" aria-label="Sublime, inicio"><img class="brand-logo" src="Captura%20de%20pantalla%202026-09-12%20110604.png" alt="Sublime Trufas" /></a><span>Sabor que deja huella · Bogotá, Colombia</span><a href="#inicio">Volver arriba ↑</a></div><div class="container artelibre-credit"><img src="ArteLibre-Logo-Reimagined.png" alt="Dodecaedro estrellado de ArteLibre" /><span>artelibre</span></div></footer>
+  <script>
+    const menu = document.querySelector('.menu-toggle');
+    const links = document.querySelector('.nav-links');
+    menu.addEventListener('click', () => { const open = links.classList.toggle('is-open'); menu.setAttribute('aria-expanded', String(open)); });
+    links.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { links.classList.remove('is-open'); menu.setAttribute('aria-expanded', 'false'); }));
+  </script>
+</body>
+</html>
