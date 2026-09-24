@@ -116,6 +116,47 @@
     .flavor-card h3 { max-width: 330px; margin: 101px 0 16px; font: 500 clamp(1.8rem, 3vw, 2.55rem)/1.02 var(--serif); letter-spacing: -.045em; }
     .flavor-card p { position: relative; z-index: 1; max-width: 330px; margin: 0; color: var(--muted); line-height: 1.65; }
     .flavor-foot { position: absolute; z-index: 1; bottom: 28px; left: 30px; color: var(--berry); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .shop { background: #efe5d1; }
+    .shop-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 46px; }
+    .shop-heading p { max-width: 300px; margin: 0; color: var(--muted); line-height: 1.65; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .product-card { display: flex; flex-direction: column; min-height: 390px; padding: 28px; border: 1px solid rgba(76,60,45,.13); background: var(--paper); box-shadow: 0 10px 30px rgba(76,60,45,.05); }
+    .product-card.featured { color: var(--paper); background: var(--leaf); }
+    .product-label { align-self: flex-start; padding: 7px 10px; border: 1px solid var(--line); color: var(--berry); font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .featured .product-label { border-color: rgba(245,245,219,.28); color: var(--lime); }
+    .product-art { width: 92px; height: 92px; margin: 30px 0 22px; border-radius: 50%; background: radial-gradient(circle at 30% 26%, #f5f5db 0 3%, transparent 4%), radial-gradient(circle at 68% 58%, #d1b48c 0 3%, transparent 4%), linear-gradient(145deg, #8a5a2c, #4c3c2d); box-shadow: inset -12px -15px 18px rgba(0,0,0,.2); }
+    .product-card:nth-child(2) .product-art { background: radial-gradient(circle at 31% 28%, #f5f5db 0 3%, transparent 4%), radial-gradient(circle at 65% 60%, #d1b48c 0 3%, transparent 4%), #8f6a8b; }
+    .product-card:nth-child(3) .product-art { background: radial-gradient(circle at 30% 27%, #f5f5db 0 3%, transparent 4%), radial-gradient(circle at 67% 60%, #f5f5db 0 3%, transparent 4%), #c58a3c; }
+    .product-card h3 { margin: 0; font: 500 2rem/1 var(--serif); letter-spacing: -.04em; }
+    .product-card p { min-height: 47px; margin: 13px 0 22px; color: var(--muted); font-size: .89rem; line-height: 1.6; }
+    .featured p { color: rgba(245,245,219,.68); }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); }
+    .featured .product-bottom { border-color: rgba(245,245,219,.2); }
+    .price { font: 500 1.35rem var(--serif); }
+    .add-to-cart { border: 0; cursor: pointer; color: var(--paper); background: var(--berry); }
+    .add-to-cart:hover { background: var(--berry-dark); }
+    .featured .add-to-cart { color: var(--berry-dark); background: var(--lime); }
+    .cart-trigger { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid rgba(245,245,219,.4); border-radius: 999px; cursor: pointer; color: var(--paper); background: transparent; font: 700 .71rem var(--sans); letter-spacing: .08em; text-transform: uppercase; }
+    .cart-count { display: grid; place-items: center; min-width: 19px; height: 19px; border-radius: 50%; color: var(--berry-dark); background: var(--lime); font-size: .65rem; }
+    .cart-backdrop { position: fixed; z-index: 40; inset: 0; visibility: hidden; opacity: 0; background: rgba(32,23,18,.45); transition: opacity .22s ease, visibility .22s ease; }
+    .cart-backdrop.is-open { visibility: visible; opacity: 1; }
+    .cart { position: fixed; z-index: 41; top: 0; right: 0; display: flex; flex-direction: column; width: min(430px, 100%); height: 100dvh; padding: 28px; transform: translateX(100%); color: var(--ink); background: var(--paper); box-shadow: -18px 0 44px rgba(0,0,0,.16); transition: transform .28s ease; }
+    .cart.is-open { transform: translateX(0); }
+    .cart-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 23px; border-bottom: 1px solid var(--line); }
+    .cart-top h2 { margin: 0; font: 500 2rem var(--serif); }
+    .close-cart { border: 0; cursor: pointer; color: var(--ink); background: transparent; font: 500 2rem/1 var(--sans); }
+    .cart-items { flex: 1; padding: 10px 0; overflow: auto; }
+    .empty-cart { padding: 30px 0; color: var(--muted); line-height: 1.6; }
+    .cart-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .cart-item h3 { margin: 0 0 5px; font: 500 1.15rem var(--serif); }
+    .cart-item small { color: var(--muted); }
+    .quantity { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+    .quantity button { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid var(--line); border-radius: 50%; cursor: pointer; color: var(--ink); background: transparent; }
+    .cart-footer { padding-top: 19px; border-top: 1px solid var(--line); }
+    .cart-total { display: flex; justify-content: space-between; margin-bottom: 18px; font: 500 1.25rem var(--serif); }
+    .checkout { width: 100%; border: 0; cursor: pointer; color: var(--berry-dark); background: var(--lime); }
+    .checkout:disabled { cursor: not-allowed; opacity: .45; }
+    .checkout-message { min-height: 20px; margin: 13px 0 0; color: var(--berry); font-size: .82rem; line-height: 1.45; text-align: center; }
     .process { background: var(--paper); }
     .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start; }
     .process-list { border-top: 1px solid var(--line); }
@@ -153,6 +194,7 @@
     footer::after { content: ""; display: block; clear: both; }
     @media (max-width: 900px) {
       .hero-grid, .story-grid, .process-grid, .occasion-grid { grid-template-columns: 1fr; gap: 54px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-grid { padding-top: 68px; }
       .hero-art { min-height: 470px; }
       .story-card { min-height: 440px; }
@@ -177,8 +219,8 @@
       .signal-grid { grid-template-columns: 1fr; }
       .signal-item { padding: 19px; border-right: 0; border-bottom: 1px solid var(--line); }
       .signal-item:last-child { border-bottom: 0; }
-      .flavor-intro, .contact-grid, .footer-row { align-items: start; flex-direction: column; }
-      .flavor-grid, .occasion-cards { grid-template-columns: 1fr; }
+      .flavor-intro, .shop-heading, .contact-grid, .footer-row { align-items: start; flex-direction: column; }
+      .flavor-grid, .product-grid, .occasion-cards { grid-template-columns: 1fr; }
       .flavor-card { min-height: 330px; }
       .process-quote { min-height: 320px; padding: 33px; }
       .process-quote small { left: 33px; bottom: 26px; }
@@ -191,14 +233,15 @@
   <div class="announcement">Sabor que deja huella · Hecho artesanalmente en Bogotá</div>
   <header>
     <nav class="container" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Sublime, inicio"><img class="brand-logo" src="Captura%20de%20pantalla%202026-09-12%20110604.png" alt="Sublime Trufas" /></a>
+      <a class="brand" href="#inicio" aria-label="Sublime, inicio"><img class="brand-logo" src="New%20Logo.jpg" alt="Sublime Trufas" /></a>
       <div class="nav-links" id="nav-links">
         <a href="#historia">La historia</a>
         <a href="#sabores">Sabores</a>
+        <a href="#tienda">Comprar</a>
         <a href="#proceso">El proceso</a>
         <a href="#contacto">Contacto</a>
       </div>
-      <a class="nav-cta" href="#contacto">Pedir trufas <span aria-hidden="true">↗</span></a>
+      <button class="cart-trigger" type="button" aria-controls="cart" aria-expanded="false">Mi pedido <span class="cart-count" aria-live="polite">0</span></button>
       <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false">Menú</button>
     </nav>
   </header>
@@ -209,12 +252,12 @@
           <div class="eyebrow">Trufas artesanales · edición gulupa</div>
           <h1>Sabor que<br /><em>deja huella.</em></h1>
           <p>Una trufa de bizcochuelo infusionado con gulupa, cubierta de chocolate y rellena de combinaciones que no esperabas encontrar en un solo bocado.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#sabores">Descubrir sabores <span aria-hidden="true">↓</span></a><a class="button button-ghost" href="#historia">Conocer Sublime <span aria-hidden="true">↗</span></a></div>
+          <div class="hero-actions"><a class="button button-primary" href="#tienda">Elegir mi caja <span aria-hidden="true">↓</span></a><a class="button button-ghost" href="#historia">Conocer Sublime <span aria-hidden="true">↗</span></a></div>
           <div class="hero-note"><span aria-hidden="true"></span> Dulce · ácido · salado · fresco</div>
         </div>
         <div class="hero-art" aria-label="Ilustración de una caja y trufas Sublime">
           <div class="flavor-tag">Dos rellenos, una historia</div><div class="truffle truffle-one"></div><div class="truffle truffle-two"></div><div class="truffle truffle-three"></div>
-          <div class="package"><div class="package-label"><img class="package-logo" src="Captura%20de%20pantalla%202026-09-12%20110604.png" alt="Sublime Trufas" /></div></div>
+          <div class="package"><div class="package-label"><img class="package-logo" src="New%20Logo.jpg" alt="Sublime Trufas" /></div></div>
         </div>
       </div>
     </section>
@@ -233,18 +276,87 @@
         </div>
       </div>
     </section>
+    <section class="section shop" id="tienda">
+      <div class="container">
+        <div class="shop-heading"><div class="section-heading"><div class="eyebrow">Tienda Sublime</div><h2>Elige tu forma de probarnos.</h2></div><p>Cada caja se prepara en pequeños lotes. Selecciona la que te acompañe hoy y agrégala a tu pedido.</p></div>
+        <div class="product-grid">
+          <article class="product-card"><span class="product-label">Para probar</span><div class="product-art" aria-hidden="true"></div><h3>Caja descubrimiento</h3><p>6 trufas surtidas para conocer los dos rellenos de la colección.</p><div class="product-bottom"><span class="price">$18.000</span><button class="button add-to-cart" type="button" data-product="Caja descubrimiento" data-price="18000">Agregar</button></div></article>
+          <article class="product-card featured"><span class="product-label">La favorita</span><div class="product-art" aria-hidden="true"></div><h3>Caja para compartir</h3><p>12 trufas surtidas para abrir la conversación alrededor de la mesa.</p><div class="product-bottom"><span class="price">$32.000</span><button class="button add-to-cart" type="button" data-product="Caja para compartir" data-price="32000">Agregar</button></div></article>
+          <article class="product-card"><span class="product-label">Para regalar</span><div class="product-art" aria-hidden="true"></div><h3>Caja celebración</h3><p>24 trufas surtidas, lista para llevar a un encuentro o dar como detalle.</p><div class="product-bottom"><span class="price">$58.000</span><button class="button add-to-cart" type="button" data-product="Caja celebración" data-price="58000">Agregar</button></div></article>
+        </div>
+      </div>
+    </section>
     <section class="section process" id="proceso">
       <div class="container process-grid"><div><div class="section-heading"><div class="eyebrow">Detrás del bocado</div><h2>Lo artesanal se nota.</h2><p>Cada trufa pasa por una cadena simple, cuidada y hecha a mano: desde la fruta hasta la caja que llega contigo.</p></div><div class="process-list"><div class="process-item"><span>01</span><div><h3>Infusionamos la base</h3><p>Preparamos el bizcochuelo con la pulpa y el aroma de la gulupa.</p></div></div><div class="process-item"><span>02</span><div><h3>Cocinamos los rellenos</h3><p>Fresa con tocineta o limón con kiwi y hierbabuena, en pequeñas cantidades.</p></div></div><div class="process-item"><span>03</span><div><h3>Cubrimos con chocolate</h3><p>Una capa fina que protege el interior y aporta el primer quiebre al morder.</p></div></div><div class="process-item"><span>04</span><div><h3>Empacamos con intención</h3><p>El resultado va en una caja de cartón ecológico, lista para compartir.</p></div></div></div></div><div class="process-quote"><p>“La sorpresa empieza antes de probarla.”</p><small>Una experiencia Sublime</small></div></div>
     </section>
     <section class="section occasions"><div class="container occasion-grid"><div class="section-heading"><div class="eyebrow">Un formato para cada momento</div><h2>Pequeña por fuera. Memorable por dentro.</h2><p>Para el antojo de media tarde, la mesa de una feria o ese detalle que no se siente como cualquier detalle.</p></div><div class="occasion-cards"><article class="occasion-card"><span>✦</span><div><h3>Antojo</h3><p>Un bocado especial para cambiar el ritmo del día.</p></div></article><article class="occasion-card"><span>✧</span><div><h3>Regalo</h3><p>Una caja diferente para sorprender sin exagerar.</p></div></article><article class="occasion-card"><span>✺</span><div><h3>Evento</h3><p>Finger food artesanal para ferias y encuentros.</p></div></article></div></div></section>
     <section class="contact" id="contacto"><div class="container contact-grid"><div><div class="eyebrow">¿Listo para probar algo nuevo?</div><h2>Deja que el próximo bocado hable por sí solo.</h2></div><div class="contact-aside"><p>Sublime es un proyecto de aprendices del SENA · Centro Nacional de Hotelería, Turismo y Alimentos.</p><p>Encuéntranos en <a href="https://www.instagram.com/sublime.trufasoficial/" target="_blank" rel="noreferrer">@sublime.trufasoficial ↗</a></p></div></div></section>
   </main>
-  <footer><div class="container footer-row"><a class="brand" href="#inicio" aria-label="Sublime, inicio"><img class="brand-logo" src="Captura%20de%20pantalla%202026-09-12%20110604.png" alt="Sublime Trufas" /></a><span>Sabor que deja huella · Bogotá, Colombia</span><a href="#inicio">Volver arriba ↑</a></div><div class="container artelibre-credit"><img src="ArteLibre-Logo-Reimagined.png" alt="Dodecaedro estrellado de ArteLibre" /><span>artelibre</span></div></footer>
+  <div class="cart-backdrop" aria-hidden="true"></div>
+  <aside class="cart" id="cart" aria-label="Tu pedido" aria-hidden="true">
+    <div class="cart-top"><h2>Tu pedido</h2><button class="close-cart" type="button" aria-label="Cerrar pedido">×</button></div>
+    <div class="cart-items"><p class="empty-cart">Aún no has elegido una caja. Empieza por la que más se te antoje.</p></div>
+    <div class="cart-footer"><div class="cart-total"><span>Total</span><span class="cart-total-value">$0</span></div><button class="button checkout" type="button" disabled>Confirmar pedido</button><p class="checkout-message" aria-live="polite"></p></div>
+  </aside>
+  <footer><div class="container footer-row"><a class="brand" href="#inicio" aria-label="Sublime, inicio"><img class="brand-logo" src="New%20Logo.jpg" alt="Sublime Trufas" /></a><span>Sabor que deja huella · Bogotá, Colombia</span><a href="#inicio">Volver arriba ↑</a></div><div class="container artelibre-credit"><img src="ArteLibre-Logo-Reimagined.png" alt="Dodecaedro estrellado de ArteLibre" /><span>artelibre</span></div></footer>
   <script>
     const menu = document.querySelector('.menu-toggle');
     const links = document.querySelector('.nav-links');
     menu.addEventListener('click', () => { const open = links.classList.toggle('is-open'); menu.setAttribute('aria-expanded', String(open)); });
     links.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { links.classList.remove('is-open'); menu.setAttribute('aria-expanded', 'false'); }));
+
+    const cart = [];
+    const cartPanel = document.querySelector('.cart');
+    const backdrop = document.querySelector('.cart-backdrop');
+    const cartTrigger = document.querySelector('.cart-trigger');
+    const cartItems = document.querySelector('.cart-items');
+    const cartCount = document.querySelector('.cart-count');
+    const cartTotal = document.querySelector('.cart-total-value');
+    const checkout = document.querySelector('.checkout');
+    const checkoutMessage = document.querySelector('.checkout-message');
+    const money = (value) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(value);
+
+    function openCart() {
+      cartPanel.classList.add('is-open'); backdrop.classList.add('is-open');
+      cartPanel.setAttribute('aria-hidden', 'false'); cartTrigger.setAttribute('aria-expanded', 'true');
+    }
+    function closeCart() {
+      cartPanel.classList.remove('is-open'); backdrop.classList.remove('is-open');
+      cartPanel.setAttribute('aria-hidden', 'true'); cartTrigger.setAttribute('aria-expanded', 'false');
+    }
+    function renderCart() {
+      const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      cartCount.textContent = itemCount;
+      cartTotal.textContent = money(total);
+      checkout.disabled = !cart.length;
+      cartItems.innerHTML = cart.length ? cart.map((item, index) => `
+        <article class="cart-item"><div><h3>${item.name}</h3><small>${money(item.price)}</small><div class="quantity"><button type="button" data-action="decrease" data-index="${index}" aria-label="Quitar una caja de ${item.name}">−</button><span>${item.quantity}</span><button type="button" data-action="increase" data-index="${index}" aria-label="Agregar una caja de ${item.name}">+</button></div></div><strong>${money(item.price * item.quantity)}</strong></article>`).join('') : '<p class="empty-cart">Aún no has elegido una caja. Empieza por la que más se te antoje.</p>';
+    }
+    document.querySelectorAll('.add-to-cart').forEach((button) => button.addEventListener('click', () => {
+      const name = button.dataset.product;
+      const price = Number(button.dataset.price);
+      const existing = cart.find((item) => item.name === name);
+      existing ? existing.quantity += 1 : cart.push({ name, price, quantity: 1 });
+      checkoutMessage.textContent = '';
+      renderCart(); openCart();
+    }));
+    cartItems.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-action]');
+      if (!button) return;
+      const index = Number(button.dataset.index);
+      cart[index].quantity += button.dataset.action === 'increase' ? 1 : -1;
+      if (cart[index].quantity === 0) cart.splice(index, 1);
+      renderCart();
+    });
+    cartTrigger.addEventListener('click', openCart);
+    document.querySelector('.close-cart').addEventListener('click', closeCart);
+    backdrop.addEventListener('click', closeCart);
+    checkout.addEventListener('click', () => {
+      checkoutMessage.textContent = 'Abriendo Instagram para que envíes los detalles de tu pedido.';
+      window.location.href = 'https://ig.me/m/sublime.trufasoficial';
+    });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeCart(); });
   </script>
 </body>
 </html>
